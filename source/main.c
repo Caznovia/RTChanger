@@ -193,7 +193,7 @@ int main ()
     u32 kHeld = 0;
     
     u8 * bufs = (u8*)&rtctime;
-    int offs = 0;
+    int offs = 5;
     
     while (aptMainLoop()) //Detects the user input.
     {

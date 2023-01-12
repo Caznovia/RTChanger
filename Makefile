@@ -15,12 +15,12 @@ BUILD		:= build
 SOURCES		:= source
 DATA		:= data
 INCLUDES	:= inc
-ROMFS		:=
-APP_TITLE       := RTChanger
+ROMFS		:= $(TOPDIR)/assets/ROMFS
+APP_TITLE       := Tomodachi RTC
 APP_DESCRIPTION := A tool which can change the Raw RTC to bypass timegates!
 APP_AUTHOR      := /u/X-The-Komujin
-APP_PRODUCT_CODE:= CTR-P-ARCA
-APP_UNIQUE_ID   := 0xFCCC
+APP_PRODUCT_CODE:= CTR-P-ARCB
+APP_UNIQUE_ID   := 0xFCCD
 ICON            := assets/logo.png
 
 APP_TITLE	:= $(shell echo "$(APP_TITLE)" | cut -c1-128)
@@ -38,7 +38,7 @@ CFLAGS	:=	-g -Wall -O2 -mword-relocations \
 			-fomit-frame-pointer -ffast-math \
 			$(ARCH)
 
-CFLAGS	+=	$(INCLUDE) -DARM11 -D_3DS
+CFLAGS	+=	$(INCLUDE) -D__3DS__
 
 CXXFLAGS:=	$(CFLAGS) -Wno-reorder -fno-rtti -std=gnu++11
 
@@ -173,7 +173,7 @@ $(CURDIR)/_strip.elf: $(OUTPUT).elf
 	@$(PREFIX)strip $(CURDIR)/_strip.elf
 
 $(OUTPUT).cia: $(CURDIR)/_strip.elf $(CURDIR)/_banner.bin $(CURDIR)/_smdh.bin
-	@makerom -f cia -o $(OUTPUT).cia -rsf $(TOPDIR)/assets/cia.rsf -target t -exefslogo -elf $(CURDIR)/_strip.elf -icon $(CURDIR)/_smdh.bin -banner $(CURDIR)/_banner.bin -DAPP_TITLE="$(APP_TITLE)" -DAPP_PRODUCT_CODE="$(APP_PRODUCT_CODE)" -DAPP_UNIQUE_ID="$(APP_UNIQUE_ID)"
+	@makerom -f cia -o $(OUTPUT).cia -rsf $(TOPDIR)/assets/cia.rsf -target t -exefslogo -elf $(CURDIR)/_strip.elf -icon $(CURDIR)/_smdh.bin -banner $(CURDIR)/_banner.bin -DAPP_TITLE="$(APP_TITLE)" -DAPP_PRODUCT_CODE="$(APP_PRODUCT_CODE)" -DAPP_UNIQUE_ID="$(APP_UNIQUE_ID)" -DAPP_ROMFS="$(ROMFS)"
 	@echo "built ... $(notdir $@)"
 
 #---------------------------------------------------------------------------------

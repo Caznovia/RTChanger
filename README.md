@@ -1,8 +1,12 @@
+![QR Code](https://i.imgur.com/Yo6bVTR.png)
+
+[Download link](https://www.dropbox.com/s/sebac559qezows9/RTChanger-1.0.cia?dl=1)
+
 # RTChanger
 
-RTChanger is a homebrew application for the Nintendo 3DS system. RTChanger allows you to change the Raw RTC of your system. This is the only legally distributable open sourced lightweight Raw RTC changer! Changing the Raw RTC allows you to bypass most timegates in games. 
+This fork of RTChanger was designed to maximize the speed in which the date/time can be changed, specifically designed for Tomodachi Life speedruns (though it can be used in other contexts if you want to quickly changes dates/months).  The way this works is by changing the raw RTC to allow you to bypass most timegates, allowing you to "time travel".
 
-There are many applications in different games as some games have more than one time gate.
+To advance the RTC by one day, simply run the application.  To advance the RTC by one month, run the application while holding the A button.  For anything more complex, run [the original RTChanger](https://github.com/Storm-Eagle20/RTChanger).
 
 # Timegates?
 
